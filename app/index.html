@@ -1,0 +1,27 @@
+<div id='app'>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Template Builder</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li v-class="active: currentView === 'home'"><a href="#/">Home</a></li>
+          <li v-class="active: currentView === 'doc-list'"><a href="#/docs">Docs</a></li>
+          <li v-class="active: currentView === 'about'"><a href="#/about">About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li v-show="currentView === 'doc-list'"><a href="#/docs/new">New Doc</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container" v-view="currentView"></div>
+</div>

@@ -35,6 +35,7 @@ var app = new Vue({
   data: {
     currentView: 'home'
   }
+
 });
 
 // # router

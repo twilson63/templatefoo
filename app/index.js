@@ -26,6 +26,7 @@ var docList = require('./docs/list')
 var docNew = require('./docs/form/new')
 var docShow = require('./docs/show')
 var docEdit = require('./docs/form/edit')
+var accountRegister = require('./account/register')
 
 // # main app
 //
@@ -34,6 +35,12 @@ var app = new Vue({
   el: '#app',
   data: {
     currentView: 'home'
+  },
+  created: function () {
+    this.$on('registered', function(b) {
+      app.$data.user = b.name
+      window.location = '#/docs'
+    })
   }
 
 });
@@ -48,6 +55,7 @@ var router = director.Router({
   '/docs': docList(Vue, db, app),
   '/docs/new': docNew(Vue, db, app),
   '/docs/:id': docShow(Vue, db, app),
-  '/docs/:id/edit': docEdit(Vue, db, app)
+  '/docs/:id/edit': docEdit(Vue, db, app),
+  '/account/register': accountRegister(Vue, app)
 });
 router.init();
